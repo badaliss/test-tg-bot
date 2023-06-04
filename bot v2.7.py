@@ -70,12 +70,12 @@ commands('help', 1)
 # /text
 @dp.message_handler(content_types=['text'])
 async def text(msg: types.Message):
-    if msg.text == 'Привет' or msg.text == 'привет':
+    if msg.text.lower() == 'привет':
         await msg.answer(f'Привет, {msg.from_user.full_name}!{bot_text[2]}',
                          reply_markup=btns)
-    elif msg.text == 'Гороскоп' or msg.text == 'гороскоп':
+    elif msg.text.lower() == 'гороскоп':
         await msg.answer(f'{bot_text[3]}', reply_markup=btns)
-    elif msg.text == 'О знаке' or msg.text == 'о знаке':
+    elif msg.text.lower() == 'о знаке':
         await msg.answer(f'{bot_text[4]}', reply_markup=sbtns)
     else:
         await msg.answer(f'Ой, {msg.from_user.full_name},{bot_text[5]}',
